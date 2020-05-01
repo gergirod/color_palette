@@ -15,13 +15,16 @@
         android:theme="@style/AppTheme"
         android:largeHeap="true"
         android:hardwareAccelerated="false">
-        <activity android:name=".MainActivity"
+        <activity android:name=".HomeActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".PaletteActivity">
         </activity>
     </application>
 

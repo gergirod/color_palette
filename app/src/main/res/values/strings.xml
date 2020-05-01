@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ColorPalette</string>
+    <string name="app_name">Color Palette</string>
+    <string name="choose_from_library">Choose from library</string>
 </resources>
