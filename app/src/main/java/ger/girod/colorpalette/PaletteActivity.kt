@@ -7,12 +7,10 @@ import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.ColorUtils
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
@@ -24,14 +22,13 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.GlideEngine
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_palette.*
 
 const val SELECT_IMAGE_REQUEST = 1
 
 class PaletteActivity : AppCompatActivity(), MultiplePermissionsListener {
 
-    val adapter : ColorAdapter by lazy {
+    private val adapter : ColorAdapter by lazy {
         ColorAdapter()
     }
 
@@ -44,8 +41,7 @@ class PaletteActivity : AppCompatActivity(), MultiplePermissionsListener {
 
     }
 
-    fun initList() {
-
+    private fun initList() {
         color_list.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this)
         color_list.layoutManager = layoutManager
@@ -68,35 +64,17 @@ class PaletteActivity : AppCompatActivity(), MultiplePermissionsListener {
             .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     image.setImageBitmap(resource)
-                    getColorsfromPalette(getPalette(resource))
+                    getColorsFromPalette(PaletteUtils.getPalette(resource))
                 }
 
                 override fun onLoadCleared(placeholder: Drawable?) = Unit
             })
     }
 
-    private fun getColorsfromPalette(palette: Palette) {
+    private fun getColorsFromPalette(palette: Palette) {
         val newList = ArrayList<Palette.Swatch>(palette.swatches)
-
         newList.sortByDescending { it.population }
-
-        val a : FloatArray = newList[0].hsl
-
-        Log.e("mirar aca ", "mirar aca ${newList[0].rgb}")
-
-        val h = a[0]*100
-        val s = a[1]*100
-        val l = a[2]*100
-
-        val color = ColorUtils.HSLToColor(a);
-
-        Log.e("mirar aca ","mirar aca "+color);
-
         adapter.setList(newList)
-    }
-
-    private fun getPalette(bitmap: Bitmap): Palette {
-        return Palette.from(bitmap).generate()
     }
 
     private fun checkPermissions() {

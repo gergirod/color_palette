@@ -11,7 +11,7 @@ class ColorRowHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         itemView.row_background.setBackgroundColor(swatch.rgb)
         itemView.population_text.text = swatch.population.toString()
         itemView.population_text.setTextColor(swatch.titleTextColor)
-        itemView.hex_color.text = Integer.toHexString(swatch.rgb)
+        itemView.hex_color.text = PaletteUtils.rgbToHex(swatch.rgb)
         itemView.hex_color.setTextColor(swatch.bodyTextColor)
     }
 
