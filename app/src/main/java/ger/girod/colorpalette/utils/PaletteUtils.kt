@@ -1,4 +1,4 @@
-package ger.girod.colorpalette
+package ger.girod.colorpalette.utils
 
 import android.graphics.Bitmap
 import androidx.palette.graphics.Palette

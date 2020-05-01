@@ -1,9 +1,10 @@
-package ger.girod.colorpalette
+package ger.girod.colorpalette.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
+import ger.girod.colorpalette.R
 
 class ColorAdapter : RecyclerView.Adapter<ColorRowHolder>() {
 

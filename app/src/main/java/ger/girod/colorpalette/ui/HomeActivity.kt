@@ -1,8 +1,9 @@
-package ger.girod.colorpalette
+package ger.girod.colorpalette.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ger.girod.colorpalette.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class HomeActivity : AppCompatActivity() {

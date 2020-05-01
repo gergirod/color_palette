@@ -1,4 +1,4 @@
-package ger.girod.colorpalette
+package ger.girod.colorpalette.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -22,6 +22,8 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.zhihu.matisse.Matisse
 import com.zhihu.matisse.MimeType
 import com.zhihu.matisse.engine.impl.GlideEngine
+import ger.girod.colorpalette.utils.PaletteUtils
+import ger.girod.colorpalette.R
 import kotlinx.android.synthetic.main.activity_palette.*
 
 const val SELECT_IMAGE_REQUEST = 1
