@@ -10,7 +10,7 @@ object PaletteUtils {
     }
 
     fun rgbToHex(rgb : Int) : String {
-        return Integer.toHexString(rgb)
+        return "#${Integer.toHexString(rgb)}"
     }
 
 }
